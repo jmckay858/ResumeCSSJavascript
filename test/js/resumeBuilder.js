@@ -7,7 +7,7 @@ var bio = {
 	"github" : "https://github.com/jmckay858",
 	"pictureURL" : "images/me.jpg",
 	"location" : "San Diego, CA 92117",
-	"skills" : "Fast learner, Versatile, Follows instruction well, JavaScript, Unity 5, Problem Solver, Currently developing a dream."
+	"skills" : "Fast learner, Versatile, Follows instruction well, Enthusiastic, Currently developing a dream."
 }
 
 var projects = {

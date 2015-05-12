@@ -1,0 +1,374 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"p",
+				"position"
+			],
+			[
+				"padd",
+				"padding-left"
+			],
+			[
+				"con",
+				"contactInfo"
+			],
+			[
+				"pro",
+				"projectImage"
+			],
+			[
+				"to",
+				"toUpperCase"
+			],
+			[
+				"lo",
+				"logClicks"
+			],
+			[
+				"ds",
+				"displayWork"
+			],
+			[
+				"forma",
+				"formattedDescription"
+			],
+			[
+				"for",
+				"formattedYearsWorked"
+			],
+			[
+				"wo",
+				"work-entry"
+			],
+			[
+				"form",
+				"formattedWorkEmployerTitle"
+			],
+			[
+				"work",
+				"workExperience"
+			],
+			[
+				"Wo",
+				"workExperience"
+			],
+			[
+				"fo",
+				"formattedSkills"
+			],
+			[
+				"name",
+				"name"
+			],
+			[
+				"position",
+				"position"
+			],
+			[
+				"fun",
+				"funThoughts"
+			],
+			[
+				"a",
+				"awesomeThoughts"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "\nvar bio = {\n	\"name\" : \"Jeremy F McKay\",\n	\"role\" : \"Game Designer/Programmer\",\n	\"mobile\" : \"858-751-9960\",\n	\"email\" : \"jf@jeremymckay.com\",\n	\"github\" : \"https://github.com/jmckay858\",\n	\"pictureURL\" : \"images/me.jpg\",\n	\"location\" : \"San Diego, CA 92117\",\n	\"skills\" : \"Fast learner, Versatile, Follows instruction well, Enthusiastic, Currently developing a dream.\"\n}\n\nvar projects = {\n	\"current\" : [\n	{\n		\"title\" : \"Title TBA\",\n		\"description\" : \"A match 3 game with spooky tendencies.\",\n		\"date\" : \"April 2015 - present\",\n		\"image\" : \"images/me.jpg\"\n	},{\n		\"title\" : \"K loves K\",\n		\"description\" : \"A game that pits a player against himself to save himself.\",\n		\"date\" : \"April 2015 - present\",\n		\"image\" : \"none\"\n	}\n	]\n}\n\nvar workExperience = {\n	\"jobs\" : [\n		{\n		\"employer\" : \"Self Employed\",\n		\"position\" : \"Game Designer/Programmer\",\n		\"years\" : \"2015 to present\",\n		\"description\" : \"I am currently self taught in Unity 5, JavaScript, C#, Java. I am also working on a few projects to prove my ability in these languages.  This Resume is an example of the JavaScript I am learning and continuing to learn.\",\n		\"city\" : \"San Diego, CA 92117\"\n	}\n	,\n	{\n		\"employer\" : \"County of San Diego\",\n		\"position\" : \"Community Service Officer\",\n		\"years\" : \"2002 to 2015\",\n		\"description\" : \"Delivery of court documents in a timely manner and efficient manner throughout the whole north county of San Diego.\",\n		\"city\" : \"325 S Melrose Dr. Vista, CA\"\n	}\n	]\n}\n\nvar education = {\n	\"schools\" :  [\n	{\n		\"name\" : \"Coleman College\",\n		\"location\" : \"San Diego, CA\",\n		\"degree\" : \"Certificate of Completion\",\n		\"major\" : \"Computer Information and Sciences\",\n		\"date\" : \"1996 - 1997\"\n	}\n	],\n	\n	\"onlineCourses\" : [\n	{\n		\"title\" : \"JavaScript Syntax\",\n		\"school\" : \"Udacity\",\n		\"dates\" : \"2015\",\n		\"url\" : \"http://www.Udacity.com/course/ud804\"\n	},\n	{\n		\"title\" : \"JavaScript Syntax\",\n		\"school\" : \"Udacity\",\n		\"dates\" : \"2015\",\n		\"url\" : \"http://www.Udacity.com/course/ud804\"\n	}\n	]\n}\n// add stuff to HTML\n\nbio.display = function () {\n	var formattedName = HTMLheaderName.replace(\"%data%\", bio.name);\n	var formattedRole = HTMLheaderRole.replace(\"%data%\",bio.role);\n	var formattedMobile = HTMLmobile.replace(\"%data%\",bio.mobile);\n	var formattedEmail = HTMLemail.replace(\"%data%\",bio.email);\n	formattedEmail = formattedEmail.replace(\"%email%\",bio.email);\n	var formattedGitHub = HTMLgithub.replace(\"%data%\",bio.github);\n	formattedGitHub = formattedGitHub.replace(\"%link%\",bio.github);\n	var formattedBioPic = HTMLbioPic.replace(\"%data%\",bio.picURL);\n\n		\n	$(\"#header\").append(formattedName);\n	$(\"#header\").append(formattedRole);\n	//$(\"#topContacts\").append(formattedMobile);\n	//$(\"#topContacts\").append(formattedEmail);\n	//$(\"#topContacts\").append(formattedGitHub);\n	//$(\"#header\").append(formattedBioPic);\n	\n	if(bio.skills.length > 0) \n	{\n		$(\"#header\").append(HTMLskillsStart);\n		var formattedSkills = HTMLskills.replace(\"%data%\", bio.skills);\n		$(\"#skills\").prepend(formattedSkills);\n	}\n}\n\n\n\n\nworkExperience.display = function()\n{\n	for (job in workExperience.jobs) {\n	$(\"#workExperience\").append(HTMLworkStart);\n		var formattedWorkEmployer = HTMLworkEmployer.replace(\"%data%\",workExperience.jobs[job].employer);\n		var formattedTitle = HTMLworkTitle.replace(\"%data%\",workExperience.jobs[job].position);\n		var formattedWorkEmployerTitle = formattedWorkEmployer + \" \" + formattedTitle;\n		var formattedYearsWorked = HTMLworkDates.replace(\"%data%\",workExperience.jobs[job].years);\n		var formattedLocation = HTMLworkLocation.replace(\"%data%\", workExperience.jobs[job].city);\n		var formattedDescription = HTMLworkDescription.replace(\"%data%\",workExperience.jobs[job].description);\n\n		$(\".work-entry:last\").append(formattedWorkEmployerTitle);\n		$(\".work-entry:last\").append(formattedYearsWorked);\n		$(\".work-entry:last\").append(formattedLocation);\n		$(\".work-entry:last\").append(formattedDescription);\n\n	}\n}\n\nfunction inName(name)\n{\n	name = name.trim().split(\" \");\n	console.log(name);\n	name[1] = name[1].toUpperCase();\n	name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();\n\n	return name[0] + \" \" + name[1];\n\n}\n\nprojects.display = function () {\n	\n	// body...\n	for (var project in projects.current) {\n		$(\"#projects\").append(HTMLprojectStart);\n		var formattedProjectTitle = HTMLprojectTitle.replace(\"%data%\",projects.current[project].title);\n		var formattedProjectDesc = HTMLprojectDescription.replace(\"%data%\",projects.current[project].description);\n		var formattedProjectDates = HTMLprojectDates.replace(\"%data%\",projects.current[project].date);\n		var formattedProjectImage = HTMLprojectImage.replace(\"%data%\",projects.current[project].image);\n\n		$(\".project-entry:last\").append(formattedProjectTitle);\n		$(\".project-entry:last\").append(formattedProjectDates);\n		$(\".project-entry:last\").append(formattedProjectDesc);\n		//$(\".project-entry:last\").append(formattedProjectImage);\n	}\n}\neducation.display = function () {\n	\n	// body...\n	for (var school in education.schools) {\n		$(\"#education\").append(HTMLschoolStart);\n		var formattedName = HTMLschoolName.replace(\"%data%\",education.schools[school].name);\n		var formattedDegree = HTMLschoolDegree.replace(\"%data%\",education.schools[school].degree);\n		var formattedDates = HTMLschoolDates.replace(\"%data%\",education.schools[school].date);\n		var formattedLocation = HTMLschoolLocation.replace(\"%data%\",education.schools[school].location);\n		var formattedMajor = HTMLschoolMajor.replace(\"%data%\",education.schools[school].major);\n\n		$(\".education-entry:last\").append(formattedName);\n		$(\".education-entry:last\").append(formattedDegree);\n		$(\".education-entry:last\").append(formattedDates);\n		$(\".education-entry:last\").append(formattedLocation);\n		$(\".education-entry:last\").append(formattedMajor);\n	}\n\n}\n\neducation.online = function () {\n	for (var course in education.onlineCourses)\n	{\n		$(\"#onlineclass\").append(HTMLonlineClasses);\n		var formattedTitle = HTMLonlineTitle.replace(\"%data%\",education.onlineCourses[course].title);\n		var formattedSchool = HTMLonlineSchool.replace(\"%data%\",education.onlineCourses[course].school);\n		var formattedDate = HTMLonlineDates.replace(\"%data%\",education.onlineCourses[course].dates);\n		var formattedURL = HTMLonlineURL.replace(\"%data%\",education.onlineCourses[course].url);\n\n		$(\".online-entry:last\").append(formattedTitle);\n		$(\".online-entry:last\").append(formattedSchool);\n		$(\".online-entry:last\").append(formattedDate);\n		$(\".online-entry:last\").append(formattedURL);\n\n	}\n}\nbio.display();\nprojects.display();\nworkExperience.display();\neducation.display();\neducation.online(); \n$(\"#mapDiv\").append(googleMap);\n",
+			"file": "js/resumeBuilder.js",
+			"file_size": 6641,
+			"file_write_time": 130759277204583434,
+			"settings":
+			{
+				"buffer_size": 6586,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "css/style.css",
+			"settings":
+			{
+				"buffer_size": 29722,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "css/style-mobile.css",
+			"settings":
+			{
+				"buffer_size": 4720,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "left-sidebar.html",
+			"settings":
+			{
+				"buffer_size": 9838,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/D/Desktop/templates/css/style.css",
+		"/D/Desktop/templates/index.html",
+		"/D/Desktop/ResumeCSSJavascript/js/helper.js",
+		"/D/Desktop/ResumeCSSJavascript/js/resumeBuilder.js",
+		"/D/Desktop/templates/css/styleresume.css",
+		"/D/Desktop/templates/js/init.js",
+		"/D/Desktop/templates/indexresume.html",
+		"/D/Desktop/templates/css/style-desktop.css",
+		"/D/Desktop/NewResume/js/resumeBuilder.js",
+		"/D/Desktop/NewResume/js/helper.js",
+		"/C/Users/jeremy/GitHub/frontend-nanodegree-resume/js/jQuery.js",
+		"/D/Desktop/templates/resume.html",
+		"/D/Desktop/templates/js/html5shiv.js",
+		"/D/Desktop/templates/js/skel.min.js",
+		"/D/Desktop/templates/js/skel-panels.min.js",
+		"/D/Desktop/templates/css/style-1000px.css",
+		"/D/Desktop/NewResume/css/style.css",
+		"/C/Users/jeremy/GitHub/frontend-nanodegree-resume/css/style.css",
+		"/D/Desktop/NewResume/index.html",
+		"/C/Users/jeremy/GitHub/frontend-nanodegree-resume/index.html",
+		"/D/Desktop/NewResume/css/style-mobile.css",
+		"/D/Desktop/GitHubLog.txt",
+		"/C/Users/jeremy/Desktop/index.html",
+		"/C/Users/jeremy/Documents/gitignore_global.txt",
+		"/C/Users/jeremy/Desktop/jstest.js",
+		"/C/Users/jeremy/Desktop/jstest.js.erb"
+	],
+	"find":
+	{
+		"height": 0.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "js/resumeBuilder.js",
+					"settings":
+					{
+						"buffer_size": 6586,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1830,
+								1830
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "css/style.css",
+					"settings":
+					{
+						"buffer_size": 29722,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								25687,
+								25497
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 14320.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "css/style-mobile.css",
+					"settings":
+					{
+						"buffer_size": 4720,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3198,
+								3198
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2535.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "left-sidebar.html",
+					"settings":
+					{
+						"buffer_size": 9838,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2754.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}

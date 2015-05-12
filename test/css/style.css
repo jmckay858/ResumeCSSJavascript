@@ -24,46 +24,19 @@
 		font-size: 11pt;
 		line-height: 1.75em;
 	}
-	
-    #projects, #workExperience, #education, #onlineclass 
-	{
+	#projects, #workExperience, #education, #onlineclass {
+		font-weight: 400;
 		font-size: 16pt;
-		font-weight: 600;
-		padding-left: 10%;
+		padding-left: 5%;
 		padding-right: 25%;
 	}
-	
-	#projects .project-entry {
-	    font-weight: 400;
-	    font-size: 11pt;
-        padding-left: 15%;
+
+	.education-entry, .work-entry, .project-entry, .online-entry,  {
+		font-weight: 300;
+		font-size: 11pt;
+  		padding-left: 10%;
+  		
 	}
-	
-	#education .education-entry  {
-	    font-weight: 400;
-	    font-size: 11pt;
-  		padding-left: 15%;
-	}
-    #workExperience .work-entry 
-    {
-        font-weight: 400;
-        font-size: 11pt;
-        padding-left: 15%;
-    }
-    
-    #education .education-entry 
-    {
-        font-weight: 400;
-        font-size: 11pt;
-        padding-left: 15%;
-    }
-    
-    #onlineclass .online-entry
-    {
-        font-weight: 400;;
-        font-size: 11pt;
-        padding-left: 15%;
-    }
 
 	.date-text {
 	  font-style: italic;
@@ -160,7 +133,7 @@
 
 	header
 	{
-		margin-bottom: .5em;
+		margin-bottom: 2em;
 		line-height: 1.7em;
 	}
 	
@@ -870,8 +843,7 @@
 			font-size: 2.8em;
 			font-weight: 600;
 		}
-	
-	
+		
 
 /*********************************************************************************/
 /* Nav                                                                           */
